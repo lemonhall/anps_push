@@ -24,6 +24,7 @@ import datetime
 
 # 启动：python3 main.py
 # 调用：curl http://localhost:5050/push?content='测试传参'
+# 群辉上：curl https://lemonhall.synology.me:25050/push?content='测试传参'
 
 async def push(push_content):
     apns_key_client = APNs(
