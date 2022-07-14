@@ -20,3 +20,19 @@ cd anps_push/
 pip install -r requirements.txt
 
 
+# Dockerfile
+
+FROM continuumio/anaconda3
+RUN mkdir -p /opt/apns \
+    && cd /opt/apns/ \
+    && git clone https://github.com/lemonhall/anps_push.git \
+    && cd anps_push/ \
+    && pip install -r requirements.txt
+
+ENTRYPOINT ["sh /opt/apns/anps_push/start.sh"] 
+ENTRYPOINT ['sh','/opt/apns/anps_push/start.sh']
+
+EXPOSE 5050
+
+# 构建
+docker build -t apns:v1 .
