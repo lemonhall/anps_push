@@ -48,7 +48,6 @@ async def push(push_content):
 async def hello(request):
 	print(request)
 	push_content = request.rel_url.query['content']
-	print("Nothing to be sync.....")
 	print("I am going to sending msg:" + push_content +" at "+ str(datetime.datetime.now()))
 	await push(push_content)
 	return web.Response(text=push_content)
